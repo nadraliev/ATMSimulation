@@ -16,19 +16,13 @@ using System.Windows.Shapes;
 namespace ATMSimulation
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Interaction logic for ATMPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ATMPage : Page
     {
-        public MainWindow()
+        public ATMPage()
         {
             InitializeComponent();
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            queueFrame.Source = new Uri("QueuePage.xaml", UriKind.Relative);
-            atmFrame.Source = new Uri("ATMPage.xaml", UriKind.Relative);
         }
     }
 }

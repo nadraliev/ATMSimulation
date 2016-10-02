@@ -12,6 +12,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Frame x:Name="queueFrame" Content="Frame" HorizontalAlignment="Left" Height="550" VerticalAlignment="Top" Width="431" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="atmFrame" Content="Frame" Grid.Column="1" HorizontalAlignment="Left" Height="550" VerticalAlignment="Top" Width="426" NavigationUIVisibility="Hidden"/>
 
     </Grid>
 </Window>
