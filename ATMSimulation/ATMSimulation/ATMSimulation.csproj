@@ -113,11 +113,17 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\atmClearScreen.png" />
+    <Resource Include="Resources\atmClearScreenClosed.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\atm.png" />
     <Resource Include="Resources\floor.jpg" />
     <Resource Include="Resources\spooderman.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\atmMoney.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

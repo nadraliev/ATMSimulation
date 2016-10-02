@@ -6,14 +6,13 @@
       xmlns:local="clr-namespace:ATMSimulation"
       mc:Ignorable="d" 
       d:DesignHeight="550" d:DesignWidth="431"
-      Title="QueuePage" ShowsNavigationUI="False">
+      Title="QueuePage" ShowsNavigationUI="False" Loaded="Page_Loaded">
 
-    <Page.Resources>
-        <Image Source="pack://application:,,,/ATMSimulation;component/Resources/floor.jpg" x:Key="floor" Width="500" Height="500"/>
-    </Page.Resources>
+    
 
-    <Grid>
+    <Grid x:Name="roomGrid">
         <Image Source="pack://application:,,,/ATMSimulation;component/Resources/floor.jpg" Stretch="Fill" Margin="0,1,0,0"/>
-        <Image Source="pack://application:,,,/ATMSimulation;component/Resources/atm.png" Height="110" Margin="114,10,113,0" VerticalAlignment="Top"/>
+        <Image x:Name="atm" Source="pack://application:,,,/ATMSimulation;component/Resources/atm.png" Height="110" Margin="114,10,113,0" VerticalAlignment="Top"/>
+        
     </Grid>
 </Page>

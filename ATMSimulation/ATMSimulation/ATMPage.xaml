@@ -9,6 +9,19 @@
       Title="ATMPage">
 
     <Grid>
-        <Image Source="pack://application:,,,/ATMSimulation;component/Resources/atmClearScreenClosed.png" Margin="-82,0,-87,0"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="135"/>
+            <RowDefinition Height="51*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="102*"/>
+            <ColumnDefinition Width="181"/>
+            <ColumnDefinition Width="143*"/>
+        </Grid.ColumnDefinitions>
+        <Image Source="pack://application:,,,/ATMSimulation;component/Resources/atmClearScreenClosed.png" Margin="-82,0,-87,0" Grid.ColumnSpan="3" Grid.RowSpan="3"/>
+        <Label x:Name="atmStatus" Content="Welcome" HorizontalAlignment="Center" Margin="12,40,2,65" VerticalAlignment="Center" FontSize="18" Grid.Column="1" Grid.Row="1"/>
+        <Image Source="pack://application:,,,/ATMSimulation;component/Resources/atmMoney.png" x:Name="atmMoney" HorizontalAlignment="Left" Height="550" Margin="-82,53,-87,-53" VerticalAlignment="Top" Width="595" Grid.ColumnSpan="3" Grid.RowSpan="3" Visibility="Hidden"/>
+
     </Grid>
 </Page>
