@@ -58,9 +58,6 @@ namespace ATMSimulation
             QueueX = ActualWidth / 2 - customerImageHeight / 2;
             QueueLastY = QueueStartY;
 
-            atm.LoadBanknotes(Banknote.FaceValue.Hundred, 20);
-            atm.LoadBanknotes(Banknote.FaceValue.FiveHundred, 20);
-            atm.LoadBanknotes(Banknote.FaceValue.Thousand, 20);
 
             queueTimer.AutoReset = true;
             queueTimer.Elapsed += Timer_Elapsed;
@@ -211,6 +208,7 @@ namespace ATMSimulation
                     atm.GiveMoney(money);
                     atmPage.AddText(" Success");
                     atmPage.GiveMoney();
+                    atmPage.UpdateMoneyLabel();
                     break;
                 }
                 else

@@ -16,7 +16,7 @@ namespace ATMSimulation
             } }
         
 
-        private double Rubles
+        public double Rubles
         {
             get
             {

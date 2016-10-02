@@ -28,9 +28,12 @@ namespace ATMSimulation
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             ATM atm = new ATM();
+            atm.LoadBanknotes(Banknote.FaceValue.Hundred, 20);
+            atm.LoadBanknotes(Banknote.FaceValue.FiveHundred, 20);
+            atm.LoadBanknotes(Banknote.FaceValue.Thousand, 20);
 
-            ATMPage atmPage = new ATMPage();
-            atmPage.atm = atm;
+
+            ATMPage atmPage = new ATMPage(atm);
             atmFrame.Navigate(atmPage);
             QueuePage queuePage = new QueuePage();
             queuePage.atmPage = atmPage;

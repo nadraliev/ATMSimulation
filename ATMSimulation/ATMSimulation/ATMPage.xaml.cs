@@ -23,9 +23,10 @@ namespace ATMSimulation
 
         public ATM atm;
 
-        public ATMPage()
+        public ATMPage(ATM atm)
         {
             InitializeComponent();
+            this.atm = atm;
             foreach (var key in Enum.GetNames(typeof(Banknote.FaceValue)))
             {
                 ComboBoxItem item = new ComboBoxItem();
@@ -34,6 +35,7 @@ namespace ATMSimulation
                 comboBox.Items.Add(item);
             }
             comboBox.SelectedIndex = 0;
+            UpdateMoneyLabel();
         }
 
         public void PostText(string input)
@@ -68,7 +70,15 @@ namespace ATMSimulation
             Int32.TryParse(textBox.Text, out count);
             Banknote.FaceValue face = (Banknote.FaceValue)Enum.Parse(typeof(Banknote.FaceValue), ((ComboBoxItem)comboBox.SelectedItem).Content.ToString());
             if (count > 0)
+            {
                 atm.LoadBanknotes(face, count);
+                UpdateMoneyLabel();
+            }
+        }
+
+        public void UpdateMoneyLabel()
+        {
+            moneyLabel.Content = atm.Rubles;
         }
     }
 }
