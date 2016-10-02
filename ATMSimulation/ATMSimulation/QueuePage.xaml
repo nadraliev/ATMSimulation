@@ -1,0 +1,19 @@
+﻿<Page x:Class="ATMSimulation.QueuePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ATMSimulation"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="431"
+      Title="QueuePage" ShowsNavigationUI="False">
+
+    <Page.Resources>
+        <Image Source="pack://application:,,,/ATMSimulation;component/Resources/floor.jpg" x:Key="floor" Width="500" Height="500"/>
+    </Page.Resources>
+
+    <Grid>
+        <Image Source="pack://application:,,,/ATMSimulation;component/Resources/floor.jpg" Stretch="Fill" Margin="0,1,0,0"/>
+        <Image Source="pack://application:,,,/ATMSimulation;component/Resources/atm.png" Height="110" Margin="114,10,113,0" VerticalAlignment="Top"/>
+    </Grid>
+</Page>

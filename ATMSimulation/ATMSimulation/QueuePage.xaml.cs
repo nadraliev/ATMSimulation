@@ -12,22 +12,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace ATMSimulation
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Interaction logic for QueuePage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class QueuePage : Page
     {
-        public MainWindow()
+        public QueuePage()
         {
             InitializeComponent();
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            queueFrame.Source = new Uri("QueuePage.xaml", UriKind.Relative);
         }
     }
 }

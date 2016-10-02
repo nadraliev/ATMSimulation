@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ATMSimulation"
         mc:Ignorable="d"
-        Title="MainWindow" Height="370" Width="581" ResizeMode="CanMinimize">
+        Title="MainWindow" Height="579" Width="863" ResizeMode="CanMinimize" Loaded="Window_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="287"/>
-            <ColumnDefinition Width="286*"/>
+            <ColumnDefinition Width="431"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <Frame x:Name="queueFrame" Content="Frame" HorizontalAlignment="Left" Height="550" VerticalAlignment="Top" Width="431" NavigationUIVisibility="Hidden"/>
 
     </Grid>
 </Window>
