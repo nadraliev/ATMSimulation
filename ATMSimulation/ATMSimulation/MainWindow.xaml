@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ATMSimulation"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="370" Width="581" ResizeMode="CanMinimize">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="287"/>
+            <ColumnDefinition Width="286*"/>
+        </Grid.ColumnDefinitions>
+
     </Grid>
 </Window>
