@@ -12,7 +12,7 @@
 
     <Grid x:Name="roomGrid">
         <Image Source="pack://application:,,,/ATMSimulation;component/Resources/floor.jpg" Stretch="Fill" Margin="0,1,0,0"/>
-        <Image x:Name="atm" Source="pack://application:,,,/ATMSimulation;component/Resources/atm.png" Height="110" Margin="114,10,113,0" VerticalAlignment="Top"/>
+        <Image x:Name="atmImage" Source="pack://application:,,,/ATMSimulation;component/Resources/atm.png" Height="110" Margin="114,10,113,0" VerticalAlignment="Top"/>
         
     </Grid>
 </Page>

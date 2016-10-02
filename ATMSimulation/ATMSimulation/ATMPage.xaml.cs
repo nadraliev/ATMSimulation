@@ -20,9 +20,55 @@ namespace ATMSimulation
     /// </summary>
     public partial class ATMPage : Page
     {
+
+        public ATM atm;
+
         public ATMPage()
         {
             InitializeComponent();
+            foreach (var key in Enum.GetNames(typeof(Banknote.FaceValue)))
+            {
+                ComboBoxItem item = new ComboBoxItem();
+                item.Name = key.ToString();
+                item.Content = key.ToString();
+                comboBox.Items.Add(item);
+            }
+            comboBox.SelectedIndex = 0;
+        }
+
+        public void PostText(string input)
+        {
+            atmStatus.Content = input;
+        }
+
+        public void AddText(string input)
+        {
+            atmStatus.Content += input;
+        }
+
+        public void ClearText()
+        {
+            atmStatus.Content = String.Empty;
+        }
+
+        public void ResetStatus()
+        {
+            atmStatus.Content = "Welcome";
+            atmMoney.Visibility = Visibility.Hidden;
+        }
+
+        public void GiveMoney()
+        {
+            atmMoney.Visibility = Visibility.Visible;
+        }
+
+        private void loadMoney_Click(object sender, RoutedEventArgs e)
+        {
+            int count = 0;
+            Int32.TryParse(textBox.Text, out count);
+            Banknote.FaceValue face = (Banknote.FaceValue)Enum.Parse(typeof(Banknote.FaceValue), ((ComboBoxItem)comboBox.SelectedItem).Content.ToString());
+            if (count > 0)
+                atm.LoadBanknotes(face, count);
         }
     }
 }

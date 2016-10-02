@@ -26,10 +26,6 @@ namespace ATMSimulation
         public QueuePage()
         {
             InitializeComponent();
-
-
-
-
         }
 
         double QueueStartY;
@@ -37,25 +33,34 @@ namespace ATMSimulation
         double QueueEndY;
         double QueueLastY;
         int customerImageHeight = 68;
+        int N = 50;
+        int M = 10000;
+        int trysAllowed = 3;
+
+        public ATMPage atmPage;
 
         Customer currentCustomer;
         Image currentCustomerImage;
 
-
+        Random random = new Random();
         Queue<Customer> customersQueue = new Queue<Customer>();
         Queue<Image> customersImageQueue = new Queue<Image>();
         Timer queueTimer = new Timer(9000);
         Timer customerEnteractionTimer = new Timer(5000);
+        public ATM atm;
+
 
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            QueueStartY = atm.Margin.Top + atm.ActualHeight;
+            QueueStartY = atmImage.Margin.Top + atmImage.ActualHeight;
             QueueEndY = ActualHeight;
             QueueX = ActualWidth / 2 - customerImageHeight / 2;
             QueueLastY = QueueStartY;
 
-
+            atm.LoadBanknotes(Banknote.FaceValue.Hundred, 20);
+            atm.LoadBanknotes(Banknote.FaceValue.FiveHundred, 20);
+            atm.LoadBanknotes(Banknote.FaceValue.Thousand, 20);
 
             queueTimer.AutoReset = true;
             queueTimer.Elapsed += Timer_Elapsed;
@@ -77,8 +82,10 @@ namespace ATMSimulation
             {
                 currentCustomerImage.BeginAnimation(MarginProperty, GetCustomerLeaveAnimation());
                 MoveQueue();
+                atmPage.ResetStatus();
             }));
             customerEnteractionTimer.Interval += 500;
+            atm.EndSession();
             
         }
 
@@ -190,6 +197,27 @@ namespace ATMSimulation
         private void CustomerMoveToATMAnimation_Completed(object sender, EventArgs e)
         {
             customerEnteractionTimer.Start();
+            atm.StartSession(currentCustomer);
+            atmPage.ClearText();
+            for (int i = 0; i < trysAllowed; i++)
+            {
+                int moneyRequested = (random.Next(N, M + 1) / 100) * 100;
+                atmPage.AddText("Requested " + moneyRequested + "\n");
+                List<Banknote> money = new List<Banknote>();
+                int result = atm.RequestMoney(moneyRequested, ref money);
+                Console.WriteLine("Requested money: " + moneyRequested + "  result code: " + result);
+                if (result == 0)
+                {
+                    atm.GiveMoney(money);
+                    atmPage.AddText(" Success");
+                    atmPage.GiveMoney();
+                    break;
+                }
+                else
+                {
+                    atmPage.AddText(" Error \n");
+                }
+            }
         }
     }
 }

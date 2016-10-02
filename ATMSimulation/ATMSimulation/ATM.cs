@@ -39,10 +39,11 @@ namespace ATMSimulation
             Console.WriteLine("new ATM created");
         }
 
-        public void LoadBanknotes(List<Banknote> moneyToLoad)
+        public void LoadBanknotes(Banknote.FaceValue face, int count)
         {
-            banknotes.AddRange(moneyToLoad);
-            Console.WriteLine("banknotes loaded");
+            for (int i = 0; i < count; i++)
+                banknotes.Add(new Banknote(face));
+            Console.WriteLine(face + " " + count + " banknotes loaded");
         }
 
         public void StartSession(Customer customer)
@@ -111,7 +112,7 @@ namespace ATMSimulation
             return availableBanknotes;
         }
 
-        private void GiveMoney(List<Banknote> money)
+        public void GiveMoney(List<Banknote> money)
         {
             foreach (Banknote b in money)
                 RemoveBanknote(banknotes, b.Rubles);

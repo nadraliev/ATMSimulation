@@ -27,8 +27,16 @@ namespace ATMSimulation
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            queueFrame.Source = new Uri("QueuePage.xaml", UriKind.Relative);
-            atmFrame.Source = new Uri("ATMPage.xaml", UriKind.Relative);
+            ATM atm = new ATM();
+
+            ATMPage atmPage = new ATMPage();
+            atmPage.atm = atm;
+            atmFrame.Navigate(atmPage);
+            QueuePage queuePage = new QueuePage();
+            queuePage.atmPage = atmPage;
+            queuePage.atm = atm;
+            queueFrame.Navigate(queuePage);
+            
         }
     }
 }

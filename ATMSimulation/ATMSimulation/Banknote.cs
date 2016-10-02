@@ -12,7 +12,7 @@ namespace ATMSimulation
 
 
 
-        public enum FaceValue { Fifty=50, Hundred=100, FiveHundred=500, Thousand=1000, FiveThousand=5000 };
+        public enum FaceValue {  Hundred=100, FiveHundred=500, Thousand=1000, FiveThousand=5000 };
 
         private FaceValue rubles;
 
